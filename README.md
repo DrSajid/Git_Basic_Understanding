@@ -11,7 +11,7 @@ Basic understanding of git for daily use
 5. [Review log](#review-log)
 6. [Branches](#branches)
 7. [Remote repo](#remote-repo)
-8. [Push chages to remote repository](#push-chages-to-remote-repository)
+8. [Push changes to remote repository](#push-changes-to-remote-repository)
 
 ---
 
