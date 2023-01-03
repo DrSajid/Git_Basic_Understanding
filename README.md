@@ -11,6 +11,7 @@ Basic understanding of git for daily use
 5. [Review log](#review-log)
 6. [Branches](#branches)
 7. [Remote repo](#remote-repo)
+8. [Push chages to remote repository](#push-chages-to-remote-repository)
 
 ---
 
@@ -26,6 +27,8 @@ Basic understanding of git for daily use
     git config –-global user.email="write_email_address"
     git config –-global user.name   <!--Should print your name-->
     git config –-global user.email    <!--Should print your email address-->
+    git config --global alias.logg "log --graph --decorate --oneline --all"         <!-- add alias ie. logg>
+    git config --global alias.logg "log --graph --decorate --oneline --all --stat"  <!-- add alias ie. logs>
 
 ## Adding files for tracking
 
@@ -140,3 +143,21 @@ We can `push` local repository changes to remote server to have similar status. 
     ls  -la .git/refs/remotes
     cat .git/refs/remotes/origin/HEAD  <!-- ref to the remote -->
     cat .git/refs/remotes/origin/main  <!-- tree-ish of remote -->
+
+## Push changes to remote repository
+
+    git log --oneline 5 master                   <!-- Log of our local master branch -->
+    git log --oneline 5 origin/master            <!-- Log of remote master tracking branch in local, not remote -->
+    git diff origin/master..master --color-words
+    git push origin master                       <!-- will push chages to origin from master -->
+    git push                                     <!-- as it was tracing branch -->
+    git fetch                                    <!-- will fetch changes from the remote repository, do it often -->
+    git diff origin/master..master --color-words <!-- To see differene between local and fetch >
+    git merge origin/master                      <!-- merge fetch updated to local branch of repository -->
+    git pull                                     <!-- good at the start of the day, its fetch + merge changes from remote>
+    git branch -r                                <!-- list all the remote branches>
+    git branch non_tracking origin/non_tracking  <!-- to add non-tracking remote branch for local use>
+    git checkout -b origin/my_untracked          <!-- will add untracked branch, and checkout -->
+                                                 <!-- always fetch, merge and then push changes to remote repository>
+    git push origin :my_untracked                <!-- will delete my_tracked branch from the remote>
+    git push origin --delete my_untracked        <!-- will delete my_tracked branch from the remote>
