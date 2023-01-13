@@ -10,8 +10,10 @@ Basic understanding of git for daily use
 4. [Adding files to ignore](#adding-files-to-ignore)
 5. [Review log](#review-log)
 6. [Branches](#branches)
-7. [Remote repo](#remote-repo)
-8. [Push changes to remote repository](#push-changes-to-remote-repository)
+7. [Reset](#reset)
+8. [Stash](#stash)
+9. [Remote repo](#remote-repo)
+10. [Push changes to remote repository](#push-changes-to-remote-repository)
 
 ---
 
@@ -28,7 +30,7 @@ Basic understanding of git for daily use
     git config –-global user.name   <!--Should print your name-->
     git config –-global user.email    <!--Should print your email address-->
     git config --global alias.logg "log --graph --decorate --oneline --all"         <!-- add alias ie. logg>
-    git config --global alias.logg "log --graph --decorate --oneline --all --stat"  <!-- add alias ie. logs>
+    git config --global alias.logs "log --graph --decorate --oneline --all --stat"  <!-- add alias ie. logs>
 
 ## Adding files for tracking
 
@@ -76,6 +78,7 @@ Write in all the file extension _.txt _.doc etc, that you don’t want to be tra
     git checkout –b testing          <!--will create branch with the name of testing and will checkout-->
     git branch testing               <!--will create branch with the name of testing-->
     git branch –d testing            <!--will delete the branch-->
+    git branch -D testing            <!--will delete the branch, 'force'-->
     git branch –dr origin/testing    <!--will delete both local and remote branch-->
     git push –u origin testing       <!--will create new branch in remote repository and push changes-->
     git push                         <!--will push changes to remote repository-->
@@ -103,6 +106,27 @@ Write in all the file extension _.txt _.doc etc, that you don’t want to be tra
 
     git branch -d branch_a
     git branch -D brnach_a  <!-- (force delete with no check) -->
+
+## reset
+
+    git reset --soft   hashID  <!--  Will reset to given hash, keeping changes in stageing>
+    git reset --mixed  hashID  <! -- Will reset to given hash, keeping changes in working>
+    git reset --hard   hashID  <! -- Will reset to given hash, discard any changes>
+
+Suggestion: checkout a seperate branch and than reset from their.
+
+## stash
+
+Help to temporay saves current changes, so can be recovered later for use.
+
+    git stash save Name_of_Stash    <! save the current changes in the stash>
+    git stash list                  <! list all the stash>
+    git stash show stash@{0}        <! to see the changes in stash>
+    git stash pop stash@{0}         <! apply the stash and remove from stash list>
+    git stash apply stash@{0}       <! apply the stash at {0}>
+    git stash drop stash@{0}        <! remove the stash {0}>
+    git stash clear                 <! clear all the stash list>
+    git stash show -p stash@{0}     <! show the details in stash {0}>
 
 ## Remote repo
 
