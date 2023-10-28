@@ -113,11 +113,11 @@ Write in all the file extension _.txt _.doc etc, that you don’t want to be tra
     git reset --mixed  hashID  <! -- Will reset to given hash, keeping changes in working>
     git reset --hard   hashID  <! -- Will reset to given hash, discard any changes>
 
-Suggestion: checkout a seperate branch and than reset from their.
+Suggestion: check out a separate branch and then reset from there.
 
 ## stash
 
-Help to temporay saves current changes, so can be recovered later for use.
+Help to temporarily save current changes, so can be recovered later for use.
 
     git stash save Name_of_Stash    <! save the current changes in the stash>
     git stash list                  <! list all the stash>
@@ -130,15 +130,17 @@ Help to temporay saves current changes, so can be recovered later for use.
 
 ## Remote repo
 
-We can `push` local repository changes to remote server to have similar status. Similarly if some pushed update in the remote server, we can easily `fetch` that changes in our local repo.
+We can `push` local repository changes to a remote server to have similar status. Similarly, if some pushed updates in the remote server, we can easily `fetch` that changes in our local repo.
 
-### To check remote exist in current project
+### To check if remote exists in current project
 
     git remote
 
 ### To add remote
 
-    git remote add origin  <!-- url to your github repo -->
+    git remote add origin  https://github.com/.......
+    git branch -M main
+    git push -u origin main
 
 ### To get remote repo status
 
@@ -147,7 +149,7 @@ We can `push` local repository changes to remote server to have similar status. 
     git remote get-url origin
     cat ./git/config
 
-### To remove remote repository:
+### To remove the remote repository:
 
     git remote rm origin
 
@@ -158,7 +160,7 @@ We can `push` local repository changes to remote server to have similar status. 
     git branch -u-unset-upstream br_a  <!-- to remove br_a from tracking -->
     git help branch                    <!-- to get more option about branches -->
 
-### To get list of all branches:
+### To get the list of all branches:
 
     git branch -a  <!-- all branches local & remote -->
     git branch -r  <!-- list only remote branches -->
